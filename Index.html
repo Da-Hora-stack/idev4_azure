@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoMarket - Compra e Venda de Veículos</title>
+    <title>AutoElite - Compra e Venda de Veículos Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -13,198 +14,176 @@
         <div class="container header-container">
             <div class="logo">
                 <i class="fas fa-car"></i>
-                <h1>Auto<span>Market</span></h1>
+                <h1>Auto<span>Elite</span></h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
-            <nav>
+            <nav class="nav-menu">
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Comprar</a></li>
-                    <li><a href="#">Vender</a></li>
-                    <li><a href="#">Financiamento</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="index.html" class="active">Início</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="contact.html">Contato</a></li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <button class="btn-icon" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="btn-icon" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="btn-outline" id="login-btn">Login</button>
+            </div>
+        </div>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay">
+            <div class="container">
+                <form class="search-form">
+                    <input type="text" placeholder="Buscar por marca, modelo ou palavra-chave...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <button type="button" class="close-search"><i class="fas fa-times"></i></button>
+                </form>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
-            <h2>Encontre o carro perfeito para você</h2>
-            <p>Mais de 10.000 veículos novos e usados disponíveis em nosso estoque</p>
-            <a href="#" class="btn">Ver Estoque</a>
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80')">
+                <div class="container hero-content">
+                    <h2 class="animate__animated animate__fadeInDown">Encontre o carro dos seus sonhos</h2>
+                    <p class="animate__animated animate__fadeInUp">Mais de 10.000 veículos premium disponíveis</p>
+                    <a href="catalog.html" class="btn btn-lg animate__animated animate__fadeInUp">Ver Catálogo</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <div class="container hero-content">
+                    <h2>Financiamento Facilitado</h2>
+                    <p>Taxas especiais para clientes AutoElite</p>
+                    <a href="#financing" class="btn btn-lg">Simular Financiamento</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
     <!-- Search Form -->
     <section class="container">
-        <div class="search-form">
-            <h3>Filtrar Veículos</h3>
-            <form>
+        <div class="search-form-container">
+            <h3>Encontre seu veículo ideal</h3>
+            <form id="vehicle-search-form">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="marca">Marca</label>
-                        <select id="marca">
+                        <select id="marca" required>
                             <option value="">Todas as Marcas</option>
-                            <option value="volkswagen">Volkswagen</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="chevrolet">Chevrolet</option>
-                            <option value="ford">Ford</option>
-                            <option value="toyota">Toyota</option>
-                            <option value="honda">Honda</option>
+                            <option value="audi">Audi</option>
+                            <option value="bmw">BMW</option>
+                            <option value="mercedes">Mercedes-Benz</option>
+                            <option value="porsche">Porsche</option>
+                            <option value="landrover">Land Rover</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="modelo">Modelo</label>
-                        <select id="modelo">
+                        <select id="modelo" required>
                             <option value="">Todos os Modelos</option>
-                            <option value="gol">Gol</option>
-                            <option value="onix">Onix</option>
-                            <option value="hb20">HB20</option>
-                            <option value="corolla">Corolla</option>
-                            <option value="civic">Civic</option>
+                            <!-- Options will be populated by JavaScript -->
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="preco-max">Preço Máximo</label>
-                        <select id="preco-max">
-                            <option value="">Qualquer Preço</option>
-                            <option value="30000">R$ 30.000</option>
-                            <option value="50000">R$ 50.000</option>
-                            <option value="80000">R$ 80.000</option>
-                            <option value="100000">R$ 100.000</option>
+                        <select id="preco-max" required>
+                            <option value="">Sem limite</option>
                             <option value="150000">R$ 150.000</option>
+                            <option value="250000">R$ 250.000</option>
+                            <option value="350000">R$ 350.000</option>
+                            <option value="500000">R$ 500.000</option>
+                            <option value="1000000">R$ 1.000.000</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="ano-min">Ano Mínimo</label>
-                        <select id="ano-min">
+                        <select id="ano-min" required>
                             <option value="">Qualquer Ano</option>
-                            <option value="2015">2015</option>
-                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
                             <option value="2019">2019</option>
+                            <option value="2020">2020</option>
                             <option value="2021">2021</option>
+                            <option value="2022">2022</option>
                             <option value="2023">2023</option>
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Buscar Veículos</button>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-lg">Buscar Veículos</button>
+                    <button type="reset" class="btn btn-outline">Limpar Filtros</button>
+                </div>
             </form>
         </div>
     </section>
 
     <!-- Featured Cars -->
-    <section class="container">
+    <section class="container" id="featured">
         <div class="section-title">
             <h2>Veículos em Destaque</h2>
-            <p>Confira nossos melhores veículos com ótimas condições de pagamento</p>
+            <p>Seleção dos melhores veículos premium do mercado</p>
         </div>
         <div class="cars-grid">
-            <!-- Car 1 -->
-            <div class="car-card">
-                <div class="car-img">
-                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volkswagen Golf GTI">
-                </div>
-                <div class="car-info">
-                    <h3>Volkswagen Golf GTI</h3>
-                    <div class="car-details">
-                        <span>2020/2021</span>
-                        <span>25.000 km</span>
-                    </div>
-                    <div class="car-price">R$ 189.900</div>
-                    <div class="car-features">
-                        <span>Automático</span>
-                        <span>2.0 Turbo</span>
-                        <span>Gasolina</span>
-                    </div>
-                    <a href="#" class="btn">Ver Detalhes</a>
-                </div>
-            </div>
-
-            <!-- Car 2 -->
-            <div class="car-card">
-                <div class="car-img">
-                    <img src="https://images.unsplash.com/photo-1547038577-da80abbc4f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1455&q=80" alt="Toyota Corolla">
-                </div>
-                <div class="car-info">
-                    <h3>Toyota Corolla Altis</h3>
-                    <div class="car-details">
-                        <span>2022/2022</span>
-                        <span>12.000 km</span>
-                    </div>
-                    <div class="car-price">R$ 149.900</div>
-                    <div class="car-features">
-                        <span>Automático</span>
-                        <span>2.0 Flex</span>
-                        <span>Híbrido</span>
-                    </div>
-                    <a href="#" class="btn">Ver Detalhes</a>
-                </div>
-            </div>
-
-            <!-- Car 3 -->
-            <div class="car-card">
-                <div class="car-img">
-                    <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Jeep Renegade">
-                </div>
-                <div class="car-info">
-                    <h3>Jeep Renegade Limited</h3>
-                    <div class="car-details">
-                        <span>2021/2021</span>
-                        <span>18.000 km</span>
-                    </div>
-                    <div class="car-price">R$ 129.900</div>
-                    <div class="car-features">
-                        <span>Automático</span>
-                        <span>1.8 Flex</span>
-                        <span>4x4</span>
-                    </div>
-                    <a href="#" class="btn">Ver Detalhes</a>
-                </div>
-            </div>
+            <!-- Car cards will be populated by JavaScript -->
         </div>
-        <div style="text-align: center; margin-bottom: 50px;">
-            <a href="#" class="btn btn-primary">Ver Todos os Veículos</a>
+        <div class="section-footer">
+            <a href="catalog.html" class="btn btn-primary">Ver Todos os Veículos</a>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="features">
+    <!-- Services -->
+    <section class="features" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Por que escolher a AutoMarket?</h2>
-                <p style="color: #ecf0f1;">Oferecemos as melhores condições para sua compra ou venda</p>
+                <h2>Nossos Serviços Exclusivos</h2>
+                <p>Experiência premium de compra e venda de veículos</p>
             </div>
             <div class="features-grid">
-                <!-- Feature 1 -->
                 <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Garantia Verificada</h3>
-                    <p>Todos os nossos veículos passam por uma rigorosa inspeção de 150 pontos.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garantia Estendida</h3>
+                    <p>Todos os veículos passam por inspeção de 200 pontos e recebem garantia de 12 meses.</p>
+                    <a href="#" class="feature-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <!-- Feature 2 -->
                 <div class="feature-card">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3>Melhor Preço</h3>
-                    <p>Garantimos o melhor preço do mercado ou devolvemos a diferença.</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <i class="fas fa-car-crash"></i>
-                    <h3>Proteção Total</h3>
-                    <p>Oferecemos garantia estendida e proteção contra roubo e furto.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <i class="fas fa-exchange-alt"></i>
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
                     <h3>Troca Facilitada</h3>
-                    <p>Aceitamos seu veículo como parte do pagamento com avaliação justa.</p>
+                    <p>Avaliamos seu veículo atual e oferecemos condições especiais para troca.</p>
+                    <a href="#" class="feature-link">Simular troca <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Financiamento</h3>
+                    <p>Taxas diferenciadas com as melhores condições do mercado.</p>
+                    <a href="#" class="feature-link">Simular financiamento <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3>Test Drive em Casa</h3>
+                    <p>Leve o veículo para testar por 24 horas sem compromisso.</p>
+                    <a href="#" class="feature-link">Agendar <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -215,10 +194,9 @@
         <div class="container">
             <div class="section-title">
                 <h2>O que nossos clientes dizem</h2>
-                <p>Veja a opinião de quem já comprou ou vendeu conosco</p>
+                <p>Avaliações reais de quem já comprou conosco</p>
             </div>
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
+            <div class="testimonials-slider">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
@@ -226,22 +204,15 @@
                         </div>
                         <div class="testimonial-info">
                             <h4>Carlos Silva</h4>
-                            <span>Comprou um Honda Civic 2020</span>
+                            <span>Comprou um Porsche 911</span>
+                            <div class="rating" data-rating="5"></div>
                         </div>
                     </div>
                     <div class="testimonial-text">
-                        <p>"Processo de compra muito transparente. O carro estava exatamente como descrito e o financiamento foi aprovado rapidamente. Recomendo!"</p>
+                        <p>"Processo de compra excelente. O assessor foi muito atencioso e o carro estava em perfeitas condições, exatamente como descrito. Recomendo a AutoElite para quem busca veículos premium com garantia de procedência."</p>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="testimonial-date">15/03/2023</div>
                 </div>
-
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
@@ -249,22 +220,15 @@
                         </div>
                         <div class="testimonial-info">
                             <h4>Ana Oliveira</h4>
-                            <span>Vendeu seu Fiat Argo 2019</span>
+                            <span>Comprou um Range Rover Evoque</span>
+                            <div class="rating" data-rating="4"></div>
                         </div>
                     </div>
                     <div class="testimonial-text">
-                        <p>"Vendi meu carro em menos de uma semana pelo preço que eu queria. A equipe foi muito profissional em todo o processo."</p>
+                        <p>"Vendi meu carro anterior e comprei um Range Rover na AutoElite. O processo de troca foi muito transparente e recebi um valor justo pelo meu veículo. A equipe foi extremamente profissional em todo o processo."</p>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <div class="testimonial-date">22/02/2023</div>
                 </div>
-
-                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <div class="testimonial-img">
@@ -272,20 +236,103 @@
                         </div>
                         <div class="testimonial-info">
                             <h4>Roberto Santos</h4>
-                            <span>Comprou um Volkswagen T-Cross 2022</span>
+                            <span>Comprou um BMW X6</span>
+                            <div class="rating" data-rating="5"></div>
                         </div>
                     </div>
                     <div class="testimonial-text">
-                        <p>"Ótimo atendimento e várias opções de pagamento. Consegui um carro zero km com um desconto excelente. Superou minhas expectativas!"</p>
+                        <p>"Ótimo atendimento e várias opções de pagamento. Consegui um carro zero km com um desconto excelente e ainda fiz um test drive prolongado antes de fechar o negócio. Superou todas minhas expectativas!"</p>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <div class="testimonial-date">10/01/2023</div>
+                </div>
+            </div>
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+
+    <!-- Financing Calculator -->
+    <section class="financing-calculator" id="financing">
+        <div class="container">
+            <div class="calculator-container">
+                <div class="calculator-info">
+                    <h2>Simule seu Financiamento</h2>
+                    <p>Descubra parcelas que cabem no seu orçamento com as melhores taxas do mercado</p>
+                    <div class="calculator-features">
+                        <div class="feature">
+                            <i class="fas fa-percentage"></i>
+                            <span>Taxas a partir de 0,79% ao mês</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Prazo de até 60 meses</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>Entrada mínima de 20%</span>
+                        </div>
                     </div>
                 </div>
+                <div class="calculator-form">
+                    <form id="financing-form">
+                        <div class="form-group">
+                            <label for="vehicle-price">Valor do veículo (R$)</label>
+                            <input type="number" id="vehicle-price" min="50000" max="1000000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="down-payment">Entrada (R$)</label>
+                            <input type="number" id="down-payment" min="10000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="installments">Parcelas</label>
+                            <select id="installments" required>
+                                <option value="12">12x</option>
+                                <option value="24">24x</option>
+                                <option value="36" selected>36x</option>
+                                <option value="48">48x</option>
+                                <option value="60">60x</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest-rate">Taxa de juros (% a.m.)</label>
+                            <input type="number" id="interest-rate" step="0.01" min="0.5" max="3" value="0.99" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Calcular</button>
+                    </form>
+                    <div class="calculator-results" id="calculator-results">
+                        <div class="result-item">
+                            <span>Valor financiado</span>
+                            <strong id="financed-amount">R$ 0,00</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Valor da parcela</span>
+                            <strong id="installment-value">R$ 0,00</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Total a pagar</span>
+                            <strong id="total-amount">R$ 0,00</strong>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn btn-outline" id="save-simulation">Salvar simulação</button>
+                            <button class="btn" id="apply-now">Aplicar agora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-container">
+                <div class="newsletter-info">
+                    <h3>Receba nossas ofertas exclusivas</h3>
+                    <p>Cadastre-se e seja o primeiro a saber sobre novos veículos e promoções</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
             </div>
         </div>
     </section>
@@ -294,76 +341,147 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <!-- Column 1 -->
                 <div class="footer-col">
-                    <h3>Sobre Nós</h3>
-                    <p>A AutoMarket é a maior plataforma de compra e venda de veículos do Brasil, com mais de 15 anos de mercado.</p>
+                    <div class="logo">
+                        <i class="fas fa-car"></i>
+                        <h1>Auto<span>Elite</span></h1>
+                    </div>
+                    <p>A AutoElite é especializada em veículos premium, oferecendo as melhores condições de compra, venda e financiamento.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-
-                <!-- Column 2 -->
                 <div class="footer-col">
                     <h3>Links Rápidos</h3>
                     <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Comprar Carro</a></li>
-                        <li><a href="#">Vender Carro</a></li>
-                        <li><a href="#">Financiamento</a></li>
-                        <li><a href="#">Seminovos</a></li>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="catalog.html">Catálogo</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#financing">Financiamento</a></li>
+                        <li><a href="contact.html">Contato</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 3 -->
                 <div class="footer-col">
-                    <h3>Atendimento</h3>
-                    <ul>
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Brigadeiro Faria Lima, 2000 - São Paulo/SP</li>
                         <li><i class="fas fa-phone"></i> (11) 4004-4004</li>
                         <li><i class="fas fa-whatsapp"></i> (11) 99999-9999</li>
-                        <li><i class="fas fa-envelope"></i> contato@automarket.com.br</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</li>
+                        <li><i class="fas fa-envelope"></i> contato@autoelite.com.br</li>
                     </ul>
                 </div>
-
-                <!-- Column 4 -->
                 <div class="footer-col">
                     <h3>Horário de Funcionamento</h3>
                     <ul>
-                        <li>Segunda a Sexta: 9h às 18h</li>
-                        <li>Sábado: 9h às 14h</li>
+                        <li>Segunda a Sexta: 9h às 19h</li>
+                        <li>Sábado: 9h às 16h</li>
                         <li>Domingo: Fechado</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 AutoMarket. Todos os direitos reservados. Desenvolvido como projeto para o SENAI.</p>
+                <div class="footer-links">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 AutoElite. Todos os direitos reservados. CNPJ: 12.345.678/0001-99</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const nav = document.querySelector('nav');
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                    <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+                </div>
+                <div class="form-footer">
+                    <p>Não tem uma conta? <a href="#" id="register-link">Cadastre-se</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 
-        mobileMenu.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
+    <!-- Register Modal -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <h2>Criar Conta</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Nome Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">E-mail</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-phone">Telefone</label>
+                    <input type="tel" id="register-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Senha</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                </div>
+                <div class="form-footer">
+                    <p>Já tem uma conta? <a href="#" id="login-link">Faça login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="cart-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Seu carrinho está vazio</p>
+                <a href="catalog.html" class="btn">Ver Catálogo</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
