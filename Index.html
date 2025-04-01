@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMarket - Compra e Venda de Veículos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>Auto<span>Market</span></h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Comprar</a></li>
+                    <li><a href="#">Vender</a></li>
+                    <li><a href="#">Financiamento</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Encontre o carro perfeito para você</h2>
+            <p>Mais de 10.000 veículos novos e usados disponíveis em nosso estoque</p>
+            <a href="#" class="btn">Ver Estoque</a>
+        </div>
+    </section>
+
+    <!-- Search Form -->
+    <section class="container">
+        <div class="search-form">
+            <h3>Filtrar Veículos</h3>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="marca">Marca</label>
+                        <select id="marca">
+                            <option value="">Todas as Marcas</option>
+                            <option value="volkswagen">Volkswagen</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="ford">Ford</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="honda">Honda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modelo">Modelo</label>
+                        <select id="modelo">
+                            <option value="">Todos os Modelos</option>
+                            <option value="gol">Gol</option>
+                            <option value="onix">Onix</option>
+                            <option value="hb20">HB20</option>
+                            <option value="corolla">Corolla</option>
+                            <option value="civic">Civic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="preco-max">Preço Máximo</label>
+                        <select id="preco-max">
+                            <option value="">Qualquer Preço</option>
+                            <option value="30000">R$ 30.000</option>
+                            <option value="50000">R$ 50.000</option>
+                            <option value="80000">R$ 80.000</option>
+                            <option value="100000">R$ 100.000</option>
+                            <option value="150000">R$ 150.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano-min">Ano Mínimo</label>
+                        <select id="ano-min">
+                            <option value="">Qualquer Ano</option>
+                            <option value="2015">2015</option>
+                            <option value="2017">2017</option>
+                            <option value="2019">2019</option>
+                            <option value="2021">2021</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar Veículos</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Featured Cars -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Veículos em Destaque</h2>
+            <p>Confira nossos melhores veículos com ótimas condições de pagamento</p>
+        </div>
+        <div class="cars-grid">
+            <!-- Car 1 -->
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Volkswagen Golf GTI">
+                </div>
+                <div class="car-info">
+                    <h3>Volkswagen Golf GTI</h3>
+                    <div class="car-details">
+                        <span>2020/2021</span>
+                        <span>25.000 km</span>
+                    </div>
+                    <div class="car-price">R$ 189.900</div>
+                    <div class="car-features">
+                        <span>Automático</span>
+                        <span>2.0 Turbo</span>
+                        <span>Gasolina</span>
+                    </div>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Car 2 -->
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1547038577-da80abbc4f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1455&q=80" alt="Toyota Corolla">
+                </div>
+                <div class="car-info">
+                    <h3>Toyota Corolla Altis</h3>
+                    <div class="car-details">
+                        <span>2022/2022</span>
+                        <span>12.000 km</span>
+                    </div>
+                    <div class="car-price">R$ 149.900</div>
+                    <div class="car-features">
+                        <span>Automático</span>
+                        <span>2.0 Flex</span>
+                        <span>Híbrido</span>
+                    </div>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Car 3 -->
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Jeep Renegade">
+                </div>
+                <div class="car-info">
+                    <h3>Jeep Renegade Limited</h3>
+                    <div class="car-details">
+                        <span>2021/2021</span>
+                        <span>18.000 km</span>
+                    </div>
+                    <div class="car-price">R$ 129.900</div>
+                    <div class="car-features">
+                        <span>Automático</span>
+                        <span>1.8 Flex</span>
+                        <span>4x4</span>
+                    </div>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <a href="#" class="btn btn-primary">Ver Todos os Veículos</a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que escolher a AutoMarket?</h2>
+                <p style="color: #ecf0f1;">Oferecemos as melhores condições para sua compra ou venda</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantia Verificada</h3>
+                    <p>Todos os nossos veículos passam por uma rigorosa inspeção de 150 pontos.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Melhor Preço</h3>
+                    <p>Garantimos o melhor preço do mercado ou devolvemos a diferença.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <i class="fas fa-car-crash"></i>
+                    <h3>Proteção Total</h3>
+                    <p>Oferecemos garantia estendida e proteção contra roubo e furto.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Troca Facilitada</h3>
+                    <p>Aceitamos seu veículo como parte do pagamento com avaliação justa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que nossos clientes dizem</h2>
+                <p>Veja a opinião de quem já comprou ou vendeu conosco</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Carlos Silva</h4>
+                            <span>Comprou um Honda Civic 2020</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Processo de compra muito transparente. O carro estava exatamente como descrito e o financiamento foi aprovado rapidamente. Recomendo!"</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Oliveira">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ana Oliveira</h4>
+                            <span>Vendeu seu Fiat Argo 2019</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Vendi meu carro em menos de uma semana pelo preço que eu queria. A equipe foi muito profissional em todo o processo."</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Roberto Santos">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Roberto Santos</h4>
+                            <span>Comprou um Volkswagen T-Cross 2022</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Ótimo atendimento e várias opções de pagamento. Consegui um carro zero km com um desconto excelente. Superou minhas expectativas!"</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <h3>Sobre Nós</h3>
+                    <p>A AutoMarket é a maior plataforma de compra e venda de veículos do Brasil, com mais de 15 anos de mercado.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Comprar Carro</a></li>
+                        <li><a href="#">Vender Carro</a></li>
+                        <li><a href="#">Financiamento</a></li>
+                        <li><a href="#">Seminovos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h3>Atendimento</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (11) 4004-4004</li>
+                        <li><i class="fas fa-whatsapp"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@automarket.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo/SP</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h3>Horário de Funcionamento</h3>
+                    <ul>
+                        <li>Segunda a Sexta: 9h às 18h</li>
+                        <li>Sábado: 9h às 14h</li>
+                        <li>Domingo: Fechado</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AutoMarket. Todos os direitos reservados. Desenvolvido como projeto para o SENAI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('nav');
+
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
